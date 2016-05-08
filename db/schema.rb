@@ -13,34 +13,37 @@
 
 ActiveRecord::Schema.define(version: 20160427215704) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "alumnos", force: :cascade do |t|
-    t.string   "nombre",           limit: 255
-    t.string   "ap_paterno",       limit: 255
-    t.string   "ap_materno",       limit: 255
-    t.string   "sexo",             limit: 255
-    t.string   "curp",             limit: 255
-    t.string   "fecha_nacimiento", limit: 255
-    t.string   "grado",            limit: 255
-    t.string   "grupo",            limit: 255
-    t.string   "nombre_tutor",     limit: 255
-    t.string   "ap_paterno_tutor", limit: 255
-    t.string   "ap_materno_tutor", limit: 255
-    t.string   "direccion",        limit: 255
-    t.string   "telefono",         limit: 255
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "nombre"
+    t.string   "ap_paterno"
+    t.string   "ap_materno"
+    t.string   "sexo"
+    t.string   "curp"
+    t.string   "fecha_nacimiento"
+    t.string   "grado"
+    t.string   "grupo"
+    t.string   "nombre_tutor"
+    t.string   "ap_paterno_tutor"
+    t.string   "ap_materno_tutor"
+    t.string   "direccion"
+    t.string   "telefono"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "maestros", force: :cascade do |t|
-    t.string   "nombre_m",     limit: 255
-    t.string   "ap_paterno_m", limit: 255
-    t.string   "ap_materno_m", limit: 255
-    t.string   "grado_m",      limit: 255
-    t.string   "grupo_m",      limit: 255
-    t.string   "telefono_m",   limit: 255
-    t.string   "direccion_m",  limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "nombre_m"
+    t.string   "ap_paterno_m"
+    t.string   "ap_materno_m"
+    t.string   "grado_m"
+    t.string   "grupo_m"
+    t.string   "telefono_m"
+    t.string   "direccion_m"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
