@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  
+  namespace :api do
+     namespace :v1 do
+       resources :alumnos
+     end
+   end
+
+
+
   get 'welcome/index'
   get '/alumnos/filtro' => 'alumnos#filtro' # or match for older Rails versions
   get '/alumnos/tutores' => 'alumnos#tutores' # or match for older Rails versions
