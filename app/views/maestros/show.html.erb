@@ -1,0 +1,53 @@
+
+
+<div style="margin-bottom: 10px; margin-top: 10px;">
+  <p class="label label-warning"></p><%= notice %></p>
+</div>
+
+<h4><i class="fa fa-angle-right"></i> Información Completa del Maestro</h4>
+
+<div class="form-panel">
+
+  <div> <%=image_tag("show2.png", :size => "180x180", class: "student_icon")%> </div> 
+  <h3 class="titulos" style="margin-bottom: 20px;"><i class="fa fa-user" aria-hidden="true"></i>
+
+  Datos del Maestro</h3>
+
+  <strong class="formulario_2">Nombre:</strong>
+  
+  <%= @maestro.nombre_m %>
+  <%= @maestro.ap_paterno_m %>
+  <%= @maestro.ap_materno_m %>
+
+  <div style="margin-bottom: 10px;">
+  </div>
+
+  <div class="espacio-direccion">
+    <strong class="formulario_2">Dirección:</strong>
+    <%= @maestro.direccion_m %>
+
+    <strong class="formulario3_2">Teléfono:</strong>
+    <%= @maestro.telefono_m %>
+  </div>
+  <h3 class="titulos" style="margin-bottom: 20px;"><i class="fa fa-book" aria-hidden="true"></i> Salón a Cargo: </h3>
+
+  <div style="margin-bottom: 20px;">
+
+
+    <strong class="formulario3_2">Grado:</strong>
+    <%= @maestro.grado_m %>
+
+    <strong class="formulario3_2" >Grupo:</strong>
+    <%= @maestro.grupo_m %>
+  </div>
+</div>
+
+<div style="margin-bottom: 20px;"> </div>
+<div class="botones_show">
+  
+  <%= link_to 'Editar', edit_maestro_path(@maestro),:class=>"btn btn-info" %> 
+  <%= link_to 'Regresar', maestros_path ,:class=>"btn btn-warning"%>
+</div>
+
+
+

@@ -1,0 +1,76 @@
+
+  
+  <%= form_for(@alumno) do |f| %>
+  <% if @alumno.errors.any? %>
+    <div class="btn btn-warning" >
+      <h5><%= pluralize(@alumno.errors.count, "errore") %> impiden que el registro sea guardado:</h5>
+
+      <ul>
+      <% @alumno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+<div class="form-panel">
+
+   <h5 class="titulo_form">Introdusca cuidadosamente la información del alumno: </h5> 
+
+  <div> <%=image_tag("student1.png", :size => "180x180", class: "student_icon")%> </div>   
+
+
+  <%= f.text_field :nombre,:placeholder=>"Nombre(s) del Alumno" , :size=>"30", :class=>"formulario" %>
+
+
+  <%= f.text_field :ap_paterno,:placeholder=>"Apellido Paterno", :size=>"25", :class=>"formulario" %>
+  
+ 
+  <%= f.text_field :ap_materno,:placeholder=>"Apellido Materno", :size=>"25", :class=>"formulario" %>
+
+
+<div class="separa_radio">
+  <%= f.label "Sexo:" , :class=>"formulario_sexo" %>
+  <%=f.radio_button :sexo,'Masculino', :checked => "true"%>
+  <%= f.label :sexo, 'Masculino', :class=>"formulario_masculino"%>
+  <%=f.radio_button :sexo,'Femenino'%>
+  <%= f.label :sexo, 'Femenino' %>
+
+    <%= f.label "Grado" , :class=>"formulario_grado"%>
+    <%= f.select :grado, {1=>"1",2=>"2",3=>"3",4=>"4",5=>"5",6=>"6"} %>
+
+    <%= f.label "Grupo"  ,:class=>"formulario_grupo"%>
+    <%= f.select :grupo, {"A"=>"A","B"=>"B","C"=>"C","D"=>"D"} %>
+
+</div>
+  
+    <%= f.text_field :curp,:placeholder=>"CURP",:size=>"30",:class=>"formulario"  %>
+    <%= f.text_field :fecha_nacimiento,:placeholder=>"Fecha de Nacimiento",:size=>"25",:class=>"formulario"   %>
+ 
+    <h5 id="tutor" > <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+  Datos del Tutor:</h5>
+
+    <%= f.text_field :nombre_tutor,:placeholder=>"Nombre(s) del Tutor",:size=>"30",:class=>"formulario" %>
+
+    <%= f.text_field :ap_paterno_tutor, :placeholder=>"Apellido Paterno" ,:size=>"25",:class=>"formulario"%>
+  
+    <%= f.text_field :ap_materno_tutor, :placeholder=>"Apellido Materno",:size=>"25",:class=>"formulario" %>
+  
+    <div class="formulario2">
+      
+      <%= f.text_field :direccion,:placeholder=>"Dirección",:size=>"45", :class=>"formulario" %>
+  
+      <%= f.text_field :telefono,:placeholder=>"Teléfono",:size=>"25" , :class=>"formulario"%>
+
+    </div>
+    <div style="float: left; margin-right: 30px; margin-left: 360px;"> <%= f.submit "Guardar Registro",:class=>"btn btn-primary" %></div>
+   
+<% end %>
+
+    <div class="btn btn-info"> <%= link_to 'Regresar', alumnos_path %>  </div>
+
+
+  </div>
+
+
+

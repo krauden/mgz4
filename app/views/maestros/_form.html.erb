@@ -1,0 +1,66 @@
+
+  
+<%= form_for(@maestro) do |f| %>
+  <% if @maestro.errors.any? %>
+    <div class="btn btn-warning">
+      <h5><%= pluralize(@maestro.errors.count, "errore") %> impiden que el registro sea guardado:</h5>
+
+      <ul>
+      <% @maestro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="form-panel">
+  
+  <h5 class="titulo_form" >Introdusca cuidadosamente la información del maestro: </h5> 
+
+  <div> <%=image_tag("teacher1.png", :size => "180x180", class: "student_icon")%> </div>
+  <div style="margin-bottom: 40px;"></div>   
+
+  <%= f.text_field :nombre_m,:placeholder=>"Nombre(s) del Maestro" , :size=>"30", :class=>"formulario"%>
+
+  <%= f.text_field :ap_paterno_m,:placeholder=>"Apellido Paterno", :size=>"25", :class=>"formulario" %>
+ 
+  <%= f.text_field :ap_materno_m,:placeholder=>"Apellido Materno", :size=>"25", :class=>"formulario" %>
+
+
+  <div>  <h3 class="titulos" style="margin-bottom: 20px;"><i class="fa fa-book" aria-hidden="true"></i> Salón a Cargo: </h3>
+  </div>
+
+  <div class="separa_radio">
+    <%= f.label "Grado" , :class=>"formulario_grado"%>
+    <%= f.select :grado_m, {1=>"1",2=>"2",3=>"3",4=>"4",5=>"5",6=>"6"} %>
+
+    <%= f.label "Grupo"  ,:class=>"formulario_grupo"%>
+    <%= f.select :grupo_m, {"A"=>"A","B"=>"B","C"=>"C","D"=>"D"} %>
+  </div>
+  
+   
+  <div class="formulario2">
+      
+    <%= f.text_field :direccion_m,:placeholder=>"Dirección",:size=>"45", :class=>"formulario" %>
+  
+    <%= f.text_field :telefono_m,:placeholder=>"Teléfono",:size=>"25" , :class=>"formulario"%>
+
+  </div>
+  <div style="margin-bottom: 40px;"></div>
+
+</div>
+
+  <div style="float: left; margin-right: 30px; margin-left: 360px;"> <%= f.submit "Guardar Registro",:class=>"btn btn-primary" %>
+  </div>
+   
+  <% end %>
+
+  <div class="btn btn-info"> <%= link_to 'Regresar', maestros_path %>  </div>
+
+  <div style="margin-bottom:143px;"></div>
+
+
+
+
+

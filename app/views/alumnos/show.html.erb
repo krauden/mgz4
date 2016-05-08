@@ -1,0 +1,66 @@
+
+<div style="margin-bottom: 10px; margin-top: 10px;">
+  <p class="label label-warning"></p><%= notice %></p>
+</div>
+
+  <h4><i class="fa fa-angle-right"></i> Información Completa del Alumno</h4>
+
+<div class="form-panel">
+
+  <div> <%=image_tag("show2.png", :size => "180x180", class: "student_icon")%> </div> 
+  <h3 class="titulos"><i class="fa fa-user" aria-hidden="true"></i>
+
+  Datos del Alumno</h3>
+
+  <strong class="formulario_2">Nombre:</strong>
+  <%= @alumno.nombre %>
+  <%= @alumno.ap_paterno %>
+  <%= @alumno.ap_materno %>
+
+  <div>
+    <strong class="formulario_2">Sexo:</strong>
+    <%= @alumno.sexo %>
+    <strong class="formulario3_2">Curp:</strong>
+    <%= @alumno.curp %>
+  </div>
+
+
+  <div>
+    <strong class="formulario_2">Fecha Nacimiento:</strong>
+    <%= @alumno.fecha_nacimiento %>
+
+    <strong class="formulario3_2">Grado:</strong>
+    <%= @alumno.grado %>
+
+    <strong class="formulario3_2" >Grupo:</strong>
+    <%= @alumno.grupo %>
+  </div>
+
+
+
+  <h3 class="titulos"><i class="fa fa-user" aria-hidden="true"></i> Datos del Tutor</h3>
+
+
+  <strong class="formulario_2">Nombre del Tutor:</strong>
+  <%= @alumno.nombre_tutor %>
+  <%= @alumno.ap_paterno_tutor %>
+  <%= @alumno.ap_materno_tutor %>
+
+
+  <div class="espacio-direccion">
+    <strong class="formulario_2">Dirección:</strong>
+    <%= @alumno.direccion %>
+
+    <strong class="formulario3_2">Teléfono:</strong>
+    <%= @alumno.telefono %>
+  </div>
+</div>
+
+
+<div class="botones_show">
+  
+  <%= link_to 'Editar', edit_alumno_path(@alumno),:class=>"btn btn-info" %> 
+  <%= link_to 'Regresar', alumnos_path ,:class=>"btn btn-warning"%>
+</div>
+
+

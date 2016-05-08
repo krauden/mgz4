@@ -1,0 +1,54 @@
+<div style="margin-bottom: 10px; margin-top: 10px;">
+  <p class="label label-warning"></p><%= notice %></p>
+</div>
+ 
+
+
+<!--
+<%= form_tag({:controller => "alumnos", :action => "index"}, :method => :get) do %>
+<%=  select_tag :grado,options_for_select([ "1", "2", "3","4","5","6"],"1")  %>
+<%=  select_tag :grupo,options_for_select([ "A", "B", "C","D"],"A")  %>
+<%= submit_tag "Filtrar"%>
+<% end %>
+-->
+
+                <div class="row mt">
+                  <div class="col-md-12">
+                      <div class="content-panel">
+                          <table class="table table-striped table-advance table-hover">
+                            <div style="width: 600px;">
+                            <h4 style="float: left;"><i class="fa fa-angle-right"></i> Lista General de Tutores Registrados</h4>
+                            </div>
+                    
+                            <hr style="clear: left;">
+                              <thead>
+                              <tr>
+                                  <th><i class=" fa fa-edit"></i> Nombre</th>
+                                  <th><i class=" fa fa-edit"></i> Apellido Paterno</th>
+                                  <th><i class=" fa fa-edit"></i> Apellido Materno</th>
+                                  <th><i class=" fa fa-edit"></i> Dirección</th>
+                                  <th><i class=" fa fa-edit"></i> Teléfono</th>
+                                
+
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <% @alumnos.each do |alumno| %>
+                              <tr>
+                                  <td><%= alumno.nombre_tutor %></td>
+                                  <td><%= alumno.ap_paterno_tutor %></td>
+                                  <td><%= alumno.ap_materno_tutor %></td>
+                                  <td><%= alumno.direccion %></td>
+                                  <td><%= alumno.telefono %></td>
+                                
+                              </tr>
+                              <% end %>
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
+
+
+                

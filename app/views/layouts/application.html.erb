@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MGZ WebApp</title>
+    
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300,100,100italic,900italic,700italic,400italic,300italic' rel='stylesheet' type='text/css'>
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    
+    <%= csrf_meta_tags %>
+
+  </head>
+  
+  <body>
+
+  <section id="container" >
+      <!-- ******************************  BARRA SUPERIOR CONTENIDO Y NOTIFICACIONES *******************************-->
+      <!--comienza encabezado-->
+      <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href=http://localhost:3000/ class="logo"><b>PANEL DE ADMINISTRADOR</b></a>
+            <!--logo end-->
+            <div class="top-menu">
+              <ul class="nav pull-right top-menu">
+                    <li><a class="logout">Cerrar Sesión</a></li>
+              </ul>
+            </div>
+        </header>
+      <!--termina encabezado-->
+      
+      <!-- ************************************  MENU LATERAL PLEGABLE  ****************************************** -->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+           
+              <ul class="sidebar-menu" id="nav-accordion">
+              
+                  <p class="centered"><a href=http://localhost:3000/><%=image_tag("logo_escuela.png", :size => "90x90")%></a></p>
+                  <h5 class="centered"> Primaria MGZ</h5>
+                    
+                  <li class="mt">
+                      <a href="http://localhost:3000">
+                          <i class="fa fa-home"></i>
+                          <span>Panel Principal</span>
+                      </a>
+                  </li>
+
+                  <li class="mt">
+                      <a href=http://localhost:3000/alumnos>
+                          <i class="fa fa-table"></i>
+                          <span>Lista General</span>
+                      </a>
+                  </li>
+
+
+                   <li class="mt">
+                      <a href=http://localhost:3000/alumnos/filtro>
+                          <i class="fa fa-list-alt"></i>
+                          <span>Alumnos por Grupo</span>
+                      </a>
+                  </li>
+
+
+                  <li class="mt">
+                      <a href=http://localhost:3000/maestros>
+                          <i class="fa fa-book"></i>
+                          <span>Listado de Docentes</span>
+                      </a>
+                  </li>
+                  <li class="mt">
+                      <a href=http://localhost:3000/alumnos/tutores>
+                          <i class="fa fa-user"></i>
+                          <span>Listado de Tutores</span>
+                      </a>
+                  </li>
+
+                   <li class="mt">
+                      <a href=http://localhost:3000/alumnos/busqueda>
+                          <i class="fa fa-search"></i>
+                          <span>Búsqueda Rápida</span>
+                      </a>
+                  </li>
+
+                    <li class="mt">
+                      <a>
+                          <i class="fa fa-graduation-cap"></i>
+                          <span>Alumnos Egresados</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </aside>
+     
+      
+      <!-- **********************************************************************************************************************************************************
+      CONTENIDO PRINCIPAL
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+              
+
+          <%= yield %>         
+                          
+                      
+          </section>
+      </section>
+
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+          <div class="text-center">
+               <a><i class="fa fa-info-circle" aria-hidden="true"></i></a> 2016 MGZ WebApp Primaria Manuel Gutiérrez Zamora   
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+    
+
+
+
+
+
+
+
+  </body>
+</html>
