@@ -19,14 +19,10 @@ class Api::V1::AlumnosController < ApplicationController
   end
    
   # PATCH/PUT /users/1.json
-  def update
-   if @alumno.update(alumno_params)
-    respond_with({'status':'success'})
-   else
-    respond_with({'status':'error'})
-   end
+  def show
+    @alumno = Alumno.find(params[:id])
+    respond_with(@alumno)
   end
- 
   # DELETE /users/1.json
   def destroy
    @alumno.destroy
