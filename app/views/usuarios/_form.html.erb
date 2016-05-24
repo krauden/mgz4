@@ -1,7 +1,9 @@
+
+
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+    <div class="btn btn-warning">
+      <h5><%= pluralize(@usuario.errors.count, "errore") %> impiden que el registro sea guardado:</h5>
 
       <ul>
       <% @usuario.errors.full_messages.each do |message| %>
@@ -11,15 +13,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+
+<div class="form-panel">
+  
+  <h5 class="titulo_form" >Introdusca cuidadosamente la información del usuario: </h5> 
+
+  <div > <%=image_tag("admin_icon.png", :size => "180x180", class: "student_icon")%> </div>
+  <div style="margin-bottom: 80px;"></div>   
+
+  <%= f.text_field :username,:placeholder=>"Username" , :size=>"45", :class=>"formulario"%>
+
+<div style="margin-top: 25px; padding-bottom: 30px;">
+  <%= f.password_field :password,:placeholder=>"Password", :size=>"45", :class=>"formulario" %>
+</div>
+  
+ 
+ 
+  <div style="margin-bottom: 40px;"></div>
+
+</div>
+
+  <div style="float: left; margin-right: 30px; margin-left: 360px;"> <%= f.submit "Guardar Registro",:class=>"btn btn-primary" %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   
+  <% end %>
+
+  <div class="btn btn-info"> <%= link_to 'Regresar', usuarios_path %>  </div>
+
+  <div style="margin-bottom:195px;"></div>
+
+

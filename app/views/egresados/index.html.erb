@@ -1,0 +1,46 @@
+<div style="margin-bottom: 10px; margin-top: 10px;">
+  <p class="label label-warning"><%= notice %></p>
+</div>
+ 
+
+
+
+                <div class="row mt">
+                  <div class="col-md-12">
+                      <div class="content-panel">
+                          <table class="table table-striped table-advance table-hover">
+                            <div style="width: 600px;">
+                            <h4 style="float: left;"><i class="fa fa-angle-right"></i> Lista General de Alumnos Egresados Registrados</h4>
+                            </div>
+                              <div id="nuevo" style=" margin-left: 550px; float: left; "><a href=https://ancient-waters-63761.herokuapp.com/egresados/graduar/><%=image_tag("graduado.png", :size => "50x50")%></a></div>
+                            <hr style="clear: left;">
+                              <thead>
+                              <tr>
+                                  <th><i class=" fa fa-edit"></i> Nombre</th>
+                                  <th><i class=" fa fa-edit"></i> Apellido Paterno</th>
+                                  <th><i class=" fa fa-edit"></i> Apellido Materno</th>
+                                  <th><i class=" fa fa-edit"></i> CURP</th>
+                                  
+
+                                  <th></th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <% @egresados.each do |egresado| %>
+                              <tr>
+                                  <td><%= egresado.nombre %></td>
+                                  <td><%= egresado.ap_paterno %></td>
+                                  <td><%= egresado.ap_materno %></td>
+                                  <td><%= egresado.curp %></td>
+                                  
+                                  <td>
+                                      <div class="btn btn-success btn-xs"><i class="fa fa-check aria-hidden="true""></i><%= link_to ' Ver', egresado %></div>
+                                      <div class="btn btn-danger btn-xs"><i class="fa fa-trash-o aria-hidden="true""></i><%= link_to ' Eliminar', egresado, method: :delete, data: { confirm: '¿Eliminar elemento seleccionado?' } %></div>
+                                  </td>
+                              </tr>
+                              <% end %>
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->

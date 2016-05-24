@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+
+  devise_for :users
   resources :usuarios
   namespace :api do
      namespace :v1 do
@@ -7,9 +9,21 @@ Rails.application.routes.draw do
      end
    end
 
-    namespace :api do
+   namespace :api do
      namespace :v2 do
        resources :usuarios
+     end
+   end
+
+   namespace :api do
+     namespace :v3 do
+       resources :maestros
+     end
+   end
+
+   namespace :api do
+     namespace :v4 do
+       resources :egresados
      end
    end
 
@@ -20,8 +34,10 @@ Rails.application.routes.draw do
   get '/alumnos/tutores' => 'alumnos#tutores' # or match for older Rails versions
   get '/alumnos/tutor' => 'alumnos#tutor' # or match for older Rails versions
   get '/alumnos/busqueda' => 'alumnos#busqueda' # or match for older Rails versions
+  get '/egresados/graduar' => 'egresados#graduar' # or match for older Rails versions
   resources :maestros
   resources :alumnos
+  resources :egresados
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

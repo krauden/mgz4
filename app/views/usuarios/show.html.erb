@@ -1,14 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Username:</strong>
+<div style="margin-bottom: 10px; margin-top: 10px;">
+  <p class="label label-warning"></p><%= notice %></p>
+</div>
+
+<h4><i class="fa fa-angle-right"></i> Información Completa del Usuario</h4>
+
+<div class="form-panel">
+
+  <div> <%=image_tag("admin_icon.png", :size => "180x180", class: "student_icon")%> </div> 
+  <h3 class="titulos" style="margin-bottom: 30px;"><i class="fa fa-user" aria-hidden="true"></i>
+
+  Datos del Usuario</h3>
+
+  <strong class="formulario_2">Username:</strong>
+  
   <%= @usuario.username %>
-</p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @usuario.password %>
-</p>
+  <div style="margin-bottom: 10px;">
+  </div>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+  <div class="espacio-direccion" style="padding-bottom: 80px;">
+    <strong class="formulario_2">Contraseña:</strong>
+    <%= @usuario.password %>  
+  </div>
+
+<div style="margin-bottom: 20px;"> </div>
+</div>
+<div class="botones_show" style="margin-bottom: 235px;"	>
+  
+  <%= link_to 'Editar', edit_usuario_path(@usuario),:class=>"btn btn-info" %> 
+  <%= link_to 'Regresar', usuarios_path ,:class=>"btn btn-warning"%>
+</div>
+
+
+
+
+

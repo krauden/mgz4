@@ -34,7 +34,35 @@ class AlumnosController < ApplicationController
       @ap_materno =params[:ap_materno]
 
       if params[:nombre]
-      @alumnos = Alumno.where(nombre:@nombre,ap_paterno:@ap_paterno,ap_materno:@ap_materno)
+        if @nombre.length > 0 && @ap_paterno.length == 0 && @ap_materno.length == 0
+          @alumnos = Alumno.where(nombre:@nombre)
+        end
+
+        if @nombre.length > 0 && @ap_paterno.length > 0 && @ap_materno.length == 0
+          @alumnos = Alumno.where(nombre:@nombre,ap_paterno:@ap_paterno)
+        end
+
+        if @nombre.length > 0 && @ap_paterno.length > 0 && @ap_materno.length > 0
+          @alumnos = Alumno.where(nombre:@nombre,ap_paterno:@ap_paterno, ap_materno:@ap_materno)
+        end
+
+        if @nombre.length == 0 && @ap_paterno.length > 0 && @ap_materno.length == 0
+          @alumnos = Alumno.where(ap_paterno:@ap_paterno)
+        end
+
+
+        if @nombre.length == 0 && @ap_paterno.length > 0 && @ap_materno.length > 0
+          @alumnos = Alumno.where(ap_paterno:@ap_paterno,ap_materno:@ap_materno)
+        end
+
+        if @nombre.length == 0 && @ap_paterno.length == 0 && @ap_materno.length > 0
+          @alumnos = Alumno.where(ap_materno:@ap_materno)
+        end
+
+        if @nombre.length == 0 && @ap_paterno.length == 0 && @ap_materno.length == 0
+          @alumnos = Alumno.all
+        end
+
       else
       @alumnos = Alumno.all
     end
