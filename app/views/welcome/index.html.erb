@@ -10,10 +10,9 @@
  <% if user_signed_in? %>
  <!--<p>Bienvenido <%=current_user.email%></p>-->
 
- 	<% if current_user.email == "administrativo@mgz.edu" %>
- <!--<p>Bienvenido <%=current_user.email%></p>-->
- 
- 		<section class="wrapper site-min-height" style="margin-top: 20px; height:600px;">
+
+
+ 	<section class="wrapper site-min-height" style="margin-top: 20px; height:600px;">
   			
     		<div class="row mt">
     			
@@ -111,6 +110,13 @@
 		
         	
 		</section><! --/wrapper -->
+
+
+
+ 	<% if current_user.email == "administrativo@mgz.edu" %>
+ <!--<p>Bienvenido <%=current_user.email%></p>-->
+ 
+ 		
 
 
 
