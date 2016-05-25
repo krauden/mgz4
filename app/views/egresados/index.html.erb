@@ -12,7 +12,13 @@
                             <div style="width: 600px;">
                             <h4 style="float: left;"><i class="fa fa-angle-right"></i> Lista General de Alumnos Egresados Registrados</h4>
                             </div>
-                              <div id="nuevo" style=" margin-left: 550px; float: left; "><a href=https://ancient-waters-63761.herokuapp.com/egresados/graduar/><%=image_tag("graduado.png", :size => "50x50")%></a></div>
+                              
+                              <% if current_user.email == "administrativo@mgz.edu" %>
+                               <div id="nuevo" style=" margin-left: 550px; float: left; "><a href=https://ancient-waters-63761.herokuapp.com/egresados/graduar/><%=image_tag("graduado.png", :size => "50x50")%></a></div>
+                              <% else %>
+
+                              <%end%>
+                             
                             <hr style="clear: left;">
                               <thead>
                               <tr>
@@ -35,7 +41,13 @@
                                   
                                   <td>
                                       <div class="btn btn-success btn-xs"><i class="fa fa-check aria-hidden="true""></i><%= link_to ' Ver', egresado %></div>
+
+                                      <% if current_user.email == "administrativo@mgz.edu" %>
                                       <div class="btn btn-danger btn-xs"><i class="fa fa-trash-o aria-hidden="true""></i><%= link_to ' Eliminar', egresado, method: :delete, data: { confirm: '¿Eliminar elemento seleccionado?' } %></div>
+                                      <% else %>
+
+                                      <%end%>
+                                      
                                   </td>
                               </tr>
                               <% end %>

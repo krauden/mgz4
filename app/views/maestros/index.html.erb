@@ -12,8 +12,12 @@
                             <div style="width: 600px;">
                             <h4 style="float: left;"><i class="fa fa-angle-right"></i> Lista General de  Maestros Registrados</h4>
                             </div>
-                                 
-                               <div id="nuevo" style="padding-left: 1000px; "><a href=https://ancient-waters-63761.herokuapp.com/maestros/new/><%=image_tag("adduser.png", :size => "40x40")%></a></div>
+                                <% if current_user.email == "administrativo@mgz.edu" %>
+                                <div id="nuevo" style="padding-left: 1000px; "><a href=https://ancient-waters-63761.herokuapp.com/maestros/new/><%=image_tag("adduser.png", :size => "40x40")%></a></div>
+                                <% else %>
+
+                                <%end%> 
+                               
 
 
                             
@@ -43,8 +47,17 @@
                                   <td><%= maestro.direccion_m %></td>
                                   <td>
                                       <div class="btn btn-success btn-xs"><i class="fa fa-check aria-hidden="true""></i><%= link_to ' Ver', maestro %></div>
+                                     
+
+                                      <% if current_user.email == "administrativo@mgz.edu" %>
                                       <div class="btn btn-primary btn-xs"><i class="fa fa-pencil aria-hidden="true""><%= link_to ' Editar', edit_maestro_path(maestro) %></i></div>
                                       <div class="btn btn-danger btn-xs"><i class="fa fa-trash-o aria-hidden="true""></i><%= link_to ' Eliminar', maestro, method: :delete, data: { confirm: '¿Eliminar elemento seleccionado?' } %></div>
+                                      <% else %>
+
+                                      <%end%>
+
+
+                                      
                                   </td>
                               </tr>
                               <% end %>
