@@ -58,8 +58,12 @@
 
 
 <div class="botones_show" style="margin-bottom: 235px;">
+  <% if current_user.email == "administrativo@mgz.edu" %>
+    <%= link_to 'Editar', edit_alumno_path(@alumno),:class=>"btn btn-info" %>               
+  <% else %>
+
+  <%end%>
   
-  <%= link_to 'Editar', edit_alumno_path(@alumno),:class=>"btn btn-info" %> 
   <%= link_to 'Regresar', alumnos_path ,:class=>"btn btn-warning"%>
 </div>
 

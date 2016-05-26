@@ -7,6 +7,8 @@ class WelcomeController < ApplicationController
     @total_alumnos = @num_alumnos.count
     @alumnos_en6 = @alumnos6.count
     @porcentaje6 = ((@alumnos6.count.to_f / @total_alumnos)*100).round(2)
+    @alumnos_egresados = Egresado.all
+    @num_egresados = @alumnos_egresados.count
 
 
   	@usuario= params[:user]
